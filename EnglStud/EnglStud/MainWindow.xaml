@@ -6,8 +6,26 @@
         xmlns:local="clr-namespace:EnglStud"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="EnglStud" Height="600" Width="1000">
+        Title="EnglStud" Height="600" Width="800">
     <Grid x:Name="mainGrid" Background="#ffdadada">
-        
+        <Border MinWidth="400" MaxWidth="550" Margin="15" Background="#fff" VerticalAlignment="Center" Padding="30" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Hello!" FontSize="30" FontWeight="Light" Margin="0 0 0 20"/>
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Left" Content="Registrate"/>
+                    <Button HorizontalAlignment="Right" Content="Sign In" Style="{StaticResource MaterialDesignFlatButton}"/>
+                </Grid>
+
+                <TextBox materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <TextBox materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Content="Go" Margin="0 20"/>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
