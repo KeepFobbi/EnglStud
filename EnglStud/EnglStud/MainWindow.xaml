@@ -14,16 +14,17 @@
             </Border.Effect>
             <StackPanel>
                 <TextBlock Text="Hello!" FontSize="30" FontWeight="Light" Margin="0 0 0 20"/>
+                <TextBlock x:Name="exampleText" FontSize="30" FontWeight="Light" Margin="0 0 0 20"/>
                 <Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Left" Content="Registrate"/>
                     <Button HorizontalAlignment="Right" Content="Sign In" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
 
-                <TextBox materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button Content="Go" Margin="0 20"/>
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <PasswordBox x:Name="textBoxPassRe" materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Content="Go" Margin="0 20" Click="Button_Reg_Click"/>
 
             </StackPanel>
         </Border>
