@@ -51,3 +51,14 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Dat
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.xml
+D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\AuthWindow.g.cs
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EnglStadTest.db
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.dll
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.SqlServer.dll
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.dll
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.xml
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.SqlServer.xml
+D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.xml
+D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\AuthWindow.baml

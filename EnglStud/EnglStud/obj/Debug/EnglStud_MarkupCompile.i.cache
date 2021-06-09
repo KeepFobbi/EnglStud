@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\
+D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\
 EnglStud
 none
 false
 DEBUG;TRACE
-C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\App.xaml
-11151548125
+D:\Development\EnglStud\EnglStud\EnglStud\App.xaml
+2985370643
 
-8-466683857
-211965572594
-MainWindow.xaml;
+91093481937
+21409684880
+AuthWindow.xaml;MainWindow.xaml;
 
-False
+True
 

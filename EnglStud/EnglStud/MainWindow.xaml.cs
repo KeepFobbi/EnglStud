@@ -86,5 +86,10 @@ namespace EnglStud
                 db.SaveChanges();
             }
         }
+
+        private void Button_Window_Auth_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
