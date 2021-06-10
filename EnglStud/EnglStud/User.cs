@@ -35,5 +35,12 @@ namespace EnglStud
             this.pass = pass;
             this.email = email;
         }
+
+
+
+        //public override string ToString()
+        //{
+        //    return "User: " + Login + " Email: " + Email;
+        //}
     }
 }

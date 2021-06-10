@@ -24,7 +24,7 @@
                 <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                 <PasswordBox x:Name="textBoxPassRe" materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                 <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button Content="Go" Margin="0 20" Click="Button_Reg_Click"/>
+                <Button x:Name="Reg_Button" Content="Go" Margin="0 20" Click="Button_Reg_Click"/>
 
             </StackPanel>
         </Border>

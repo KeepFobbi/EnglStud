@@ -56,10 +56,23 @@ namespace EnglStud
                 }
 
                 if (authUser != null)
+                {
                     MessageBox.Show("Its Ok!");
+                    UserPageWindow userPageWindow = new UserPageWindow();
+                    userPageWindow.Show();
+                    Hide();
+                }
+                    
                 else
                     MessageBox.Show("Error!");
             }
+        }
+
+        private void Button_Reg_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Hide();
         }
     }
 }

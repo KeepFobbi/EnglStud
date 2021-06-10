@@ -62,3 +62,7 @@ D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.xml
 D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.SqlServer.xml
 D:\Development\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.xml
 D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\AuthWindow.baml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\AuthWindow.g.cs
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\UserPageWindow.g.cs
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\AuthWindow.baml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\UserPageWindow.baml
