@@ -6,26 +6,44 @@
         xmlns:local="clr-namespace:EnglStud"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="EnglStud" Height="600" Width="800">
-    <Grid x:Name="mainGrid" Background="#ffdadada">
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#ffdadada">
+        <materialDesign:ColorZone
+  Mode="Inverted"
+  Padding="16">
+            <DockPanel>
+                <materialDesign:PopupBox
+      DockPanel.Dock="Right"
+      PlacementMode="BottomAndAlignRightEdges">
+                    <ListBox>
+                        <ListBoxItem>
+                            <Button Click="Button_Test1_Click" Content="Hello World"/>
+                        </ListBoxItem>
+          
+                        <ListBoxItem
+          Content="Nice Popup" />
+                        <ListBoxItem
+          Content="Goodbye" />
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel
+      Orientation="Horizontal">
+                    <ToggleButton
+        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                    <TextBlock
+        VerticalAlignment="Center"
+        Margin="16 0 0 0"
+        Text="Material Design In XAML Toolkit" />
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
         <Border MinWidth="400" MaxWidth="550" Margin="15" Background="#fff" VerticalAlignment="Center" Padding="30" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Hello!" FontSize="30" FontWeight="Light" Margin="0 0 0 20"/>
-                <TextBlock x:Name="exampleText" FontSize="30" FontWeight="Light" Margin="0 0 0 20"/>
-                <Grid Margin="0 0 0 20">
-                    <Button HorizontalAlignment="Left" Content="Registrate"/>
-                    <Button HorizontalAlignment="Right" Content="Sign In" Click="Button_Window_Auth_Click" Style="{StaticResource MaterialDesignFlatButton}"/>
-                </Grid>
-
-                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <PasswordBox x:Name="textBoxPassRe" materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button x:Name="Reg_Button" Content="Go" Margin="0 20" Click="Button_Reg_Click"/>
-
+                <TextBlock Text="Welcome to EnglStud!" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+                
             </StackPanel>
         </Border>
     </Grid>

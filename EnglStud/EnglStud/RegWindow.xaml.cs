@@ -10,24 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace EnglStud
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RegWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegWindow : Window
     {
-        public MainWindow()
+        public RegWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Test1_Click(object sender, RoutedEventArgs e)
+        private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("qwe");
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
+            Close();
         }
     }
 }

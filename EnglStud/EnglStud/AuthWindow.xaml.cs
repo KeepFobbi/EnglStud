@@ -24,55 +24,11 @@ namespace EnglStud
             InitializeComponent();
         }
 
-        private void Button_Window_Auth_Click(object sender, RoutedEventArgs e)
+        private void Button_SignUp_Click(object sender, RoutedEventArgs e)
         {
-            string login = textBoxLogin.Text.Trim();
-            string pass = textBoxPass.Password.Trim();
-
-
-
-            if (login.Length < 5)
-            {
-                textBoxLogin.ToolTip = "Not corect";
-                textBoxLogin.Background = Brushes.DarkRed;
-            }
-            else if (pass.Length < 5)
-            {
-                textBoxPass.ToolTip = "Not corect";
-                textBoxPass.Background = Brushes.DarkRed;
-            }
-            else
-            {
-                textBoxLogin.ToolTip = "";
-                textBoxLogin.Background = Brushes.Transparent;
-
-                textBoxPass.ToolTip = "";
-                textBoxPass.Background = Brushes.Transparent;
-
-                User authUser = null;
-                using(ApplicationContext context = new ApplicationContext())
-                {
-                    authUser = context.Users.Where(b => b.Login == login && b.Pass == pass).FirstOrDefault();
-                }
-
-                if (authUser != null)
-                {
-                    MessageBox.Show("Its Ok!");
-                    UserPageWindow userPageWindow = new UserPageWindow();
-                    userPageWindow.Show();
-                    Hide();
-                }
-                    
-                else
-                    MessageBox.Show("Error!");
-            }
-        }
-
-        private void Button_Reg_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Hide();
+            RegWindow regWindow = new RegWindow();
+            regWindow.Show();
+            Close();
         }
     }
 }
