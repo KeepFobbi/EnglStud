@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EnglStud"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="EnglStud" Height="450" Width="800">
+        Title="EnglStud" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#ffdadada">
 
         <Border MinWidth="450" MaxWidth="550" Margin="15" Background="#fff" VerticalAlignment="Center" Padding="30" CornerRadius="20">
