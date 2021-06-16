@@ -21,7 +21,7 @@
                 <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
 
-                <Button x:Name="Reg_Button" Content="Sign In" Margin="0 20 0 0"/>
+                <Button x:Name="SignInButton" Content="Sign In" Margin="0 20 0 0" Click="SignInButton_Click"/>
                 
             </StackPanel>
         </Border>

@@ -30,5 +30,12 @@ namespace EnglStud
             regWindow.Show();
             Close();
         }
+
+        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
     }
 }
