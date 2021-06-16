@@ -5,3 +5,17 @@ D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.cspro
 D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csproj.CoreCompileInputs.cache
 D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.exe
 D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.pdb
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\App_Data\EnglStud_Database.mdf
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\App_Data\EnglStud_Database_log.ldf
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.exe.config
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.exe
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.pdb
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csproj.AssemblyReference.cache
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csproj.CoreCompileInputs.cache
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.exe
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.pdb
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EntityFramework.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EntityFramework.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csproj.CopyComplete
