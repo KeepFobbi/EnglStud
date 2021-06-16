@@ -1,0 +1,7 @@
+D:\Development\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.exe.config
+D:\Development\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.exe
+D:\Development\EnglStud\EnglStud\EnglStud_Server\bin\Debug\EnglStud_Server.pdb
+D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csprojAssemblyReference.cache
+D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.csproj.CoreCompileInputs.cache
+D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.exe
+D:\Development\EnglStud\EnglStud\EnglStud_Server\obj\Debug\EnglStud_Server.pdb

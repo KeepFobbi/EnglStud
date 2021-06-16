@@ -22,6 +22,8 @@ namespace EnglStud
         public AuthWindow()
         {
             InitializeComponent();
+            TcpConnection tcpConnection = new TcpConnection();
+            tcpConnection.ConnectionToServer();
         }
 
         private void Button_SignUp_Click(object sender, RoutedEventArgs e)
