@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglStud_Server.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,9 @@ namespace EnglStud_Server
 {
     class OpenConnection
     {
+        Socket handler;
+        StringBuilder builder;
+        byte[] data;
         static int port = 8005; // порт для приема входящих запросов
         public OpenConnection()
         {
@@ -30,11 +34,11 @@ namespace EnglStud_Server
 
                 while (true)
                 {
-                    Socket handler = listenSocket.Accept();
+                    handler = listenSocket.Accept();
                     // получаем сообщение
-                    StringBuilder builder = new StringBuilder();
+                    builder = new StringBuilder();
                     int bytes = 0; // количество полученных байтов
-                    byte[] data = new byte[256]; // буфер для получаемых данных
+                    data = new byte[256]; // буфер для получаемых данных
 
                     do
                     {
@@ -43,21 +47,28 @@ namespace EnglStud_Server
                     }
                     while (handler.Available > 0);
 
-                    Console.WriteLine(DateTime.Now.ToShortTimeString() + ": " + builder.ToString());
+                    string JsonString = builder.ToString();
+                    Console.WriteLine(DateTime.Now.ToShortTimeString() + ": " + JsonString);
 
-                    // отправляем ответ
-                    string message = "ваше сообщение доставлено";
-                    data = Encoding.Unicode.GetBytes(message);
-                    handler.Send(data);
-                    // закрываем сокет
-                    handler.Shutdown(SocketShutdown.Both);
-                    handler.Close();
+                    //var loginSchemaFrame = NJsonSchema.JsonSchema.FromType<LoginEvent>();       // to do
+                    User restoredUser = System.Text.Json.JsonSerializer.Deserialize<User>(JsonString);
+
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public void Response(string message = "ваше сообщение доставлено")
+        {
+            // отправляем ответ            
+            data = Encoding.Unicode.GetBytes(message);
+            handler.Send(data);
+            // закрываем сокет
+            handler.Shutdown(SocketShutdown.Both);
+            handler.Close();
         }
     }
 }

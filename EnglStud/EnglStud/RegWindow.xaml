@@ -18,11 +18,11 @@
                     <TextBlock HorizontalAlignment="Left" Text="Welcome to EnglStud!" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
                     <Button Click="Button_Auth_Click" HorizontalAlignment="Right" Content="Sign In" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Margin="0 0 0 15"/>
                 </Grid>
-                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <PasswordBox x:Name="textBoxPassRe" materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button x:Name="Reg_Button" Content="Sign Up" Margin="0 20 0 0"/>
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Enter your login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="qwerty"/>
+                <PasswordBox x:Name="textBoxPass" materialDesign:HintAssist.Hint="Enter your password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Password="qwerty"/>
+                <PasswordBox x:Name="textBoxPassRe" materialDesign:HintAssist.Hint="Re-Enter yor password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Password="qwerty"/>
+                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="qwerty@qwe.rty"/>
+                <Button x:Name="Reg_Button" Content="Sign Up" Margin="0 20 0 0" Click="Reg_Button_Click"/>
 
             </StackPanel>
         </Border>

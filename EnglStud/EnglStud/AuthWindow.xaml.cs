@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using EnglStud.Entities;
+using Newtonsoft.Json;
 
 namespace EnglStud
 {
@@ -35,9 +37,12 @@ namespace EnglStud
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            
+
+
+            //MainWindow mainWindow = new MainWindow();
+            //mainWindow.Show();
+            //Close();
         }
     }
 }

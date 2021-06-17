@@ -10,10 +10,9 @@ namespace EnglStud
 {
     class TcpConnection
     {
-        // адрес и порт сервера, к которому будем подключаться
         int port = 8005; // порт сервера
         string address = "127.0.0.1"; // адрес сервера
-        public void ConnectionToServer()
+        public void SendToServer(string message = null)
         {
             try
             {
@@ -22,8 +21,7 @@ namespace EnglStud
                 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 // подключаемся к удаленному хосту
                 socket.Connect(ipPoint);
-                //Console.Write("Введите сообщение:");
-                string message = "test"/*Console.ReadLine()*/;
+
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 socket.Send(data);
 

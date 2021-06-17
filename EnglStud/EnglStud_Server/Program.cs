@@ -20,11 +20,11 @@ namespace EnglStud_Server
             //OpenConnection connection = new OpenConnection(); 
             DbMainContext db = new DbMainContext();
 
-            User user = new User() { Login = "Admin", Password = "Admin", Email = "admin@ukr.net" };
-            User user2 = new User() { Login = "test", Password = "test", Email = "test@ukr.net" };
+            User user = new User("test4", "test4", "test4@ukr.net");
+            User user2 = new User(1, "test", "test", "test@ukr.net");
 
             db.Users.Add(user);
-            db.Users.Add(user2);
+            //db.Users.Add(user2);
             db.SaveChanges();
             Console.WriteLine("Objects was added...");
 
@@ -36,6 +36,7 @@ namespace EnglStud_Server
             {
                 Console.WriteLine("{0}.{1} - {2} - {3}", u.Id, u.Login, u.Password, u.Email);
             }
+            Console.WriteLine(user2.getType());
         }
     }
 }
