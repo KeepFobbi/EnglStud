@@ -97,7 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities%28DB%29\User.cs" />
+    <Compile Include="Entities%28DB%29\UserServer.cs" />
     <Compile Include="OpenConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
