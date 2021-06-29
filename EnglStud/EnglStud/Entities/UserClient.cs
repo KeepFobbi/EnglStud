@@ -37,5 +37,10 @@ namespace EnglStud.Entities
             this.Password = Password;
             this.Email = Email;
         }
+        public User(string Login, string Password)
+        {
+            this.Login = Login;
+            this.Password = Password;
+        }
     }
 }

@@ -17,26 +17,28 @@ namespace EnglStud_Server
         
         static void Main(string[] args)
         {
-            //OpenConnection connection = new OpenConnection(); 
-            DbMainContext db = new DbMainContext();
+            OpenConnection connection = new OpenConnection();
 
-            User user = new User("test4", "test4", "test4@ukr.net");
-            User user2 = new User(1, "test", "test", "test@ukr.net");
 
-            db.Users.Add(user);
-            //db.Users.Add(user2);
-            db.SaveChanges();
-            Console.WriteLine("Objects was added...");
+            //DbMainContext db = new DbMainContext();
 
-            Console.ReadLine();
+            //User user = new User("test4", "test4", "test4@ukr.net"); // create a User object
+            //User user2 = new User(1, "test", "test", "test@ukr.net");
 
-            var users = db.Users;
-            Console.WriteLine("Object List");
-            foreach (User u in users)
-            {
-                Console.WriteLine("{0}.{1} - {2} - {3}", u.Id, u.Login, u.Password, u.Email);
-            }
-            Console.WriteLine(user2.getType());
+            //db.Users.Add(user); // add User object into db
+            ////db.Users.Add(user2);
+            //db.SaveChanges(); // save db
+            //Console.WriteLine("Objects was added...");
+
+            //Console.ReadLine();
+
+            //var users = db.Users;
+            //Console.WriteLine("Object List");
+            //foreach (User u in users)
+            //{
+            //    Console.WriteLine("{0}.{1} - {2} - {3}", u.Id, u.Login, u.Password, u.Email);
+            //}
+            //Console.WriteLine(user2.getType());
         }
     }
 }

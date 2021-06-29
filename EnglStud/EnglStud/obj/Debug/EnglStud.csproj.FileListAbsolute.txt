@@ -51,7 +51,6 @@ D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.CoreCompileI
 D:\Development\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.CopyComplete
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.AssemblyReference.cache
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Buffers.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Memory.dll

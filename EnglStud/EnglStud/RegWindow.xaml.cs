@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,16 +78,20 @@ namespace EnglStud
             else
             {
                 textBoxEmail.ToolTip = null;
-                textBoxEmail.Background = Brushes.Transparent;                
+                textBoxEmail.Background = Brushes.Transparent;
             }
             if (textBoxLogin.ToolTip == null && textBoxPass.ToolTip == null && textBoxPassRe.ToolTip == null && textBoxEmail.ToolTip == null)
             {
                 User user = new User(0, login, pass, email);
-                string JsonString = System.Text.Json.JsonSerializer.Serialize<User>(user);
+                string JsonString = System.Text.Json.JsonSerializer.Serialize(user);
 
                 MessageBox.Show(JsonString);
-                TcpConnection connection = new TcpConnection();
-                connection.SendToServer(JsonString);
+                
+                TcpConnection connection = new TcpConnection(JsonString);
+
+                Thread ThreadConnection = new Thread(new ThreadStart(connection.SendToServer));
+                ThreadConnection.Start();
+                //connection.SendToServer(JsonString);
             }
         }
     }

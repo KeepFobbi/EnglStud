@@ -23,7 +23,7 @@ namespace EnglStud_Server.Entities
             return type;
         }
 
-        User() { }
+        public User() { }
         public User(string Login, string Password, string Email)
         {
             this.Login = Login;
@@ -36,6 +36,11 @@ namespace EnglStud_Server.Entities
             this.Login = Login;
             this.Password = Password;
             this.Email = Email;
+        }
+        public User(string Login, string Password)
+        {            
+            this.Login = Login;
+            this.Password = Password;            
         }
     }
 }

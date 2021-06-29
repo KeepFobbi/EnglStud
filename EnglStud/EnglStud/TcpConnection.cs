@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EnglStud
 {
@@ -12,7 +13,14 @@ namespace EnglStud
     {
         int port = 8005; // порт сервера
         string address = "127.0.0.1"; // адрес сервера
-        public void SendToServer(string message = null)
+        public string message = null;
+
+        public TcpConnection(string message)
+        {
+            this.message = message;
+        }
+
+        public void SendToServer()
         {
             try
             {
@@ -36,7 +44,7 @@ namespace EnglStud
                     builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                 }
                 while (socket.Available > 0);
-                Console.WriteLine("ответ сервера: " + builder.ToString());
+                MessageBox.Show("ответ сервера: " + builder.ToString());
 
                 // закрываем сокет
                 socket.Shutdown(SocketShutdown.Both);
