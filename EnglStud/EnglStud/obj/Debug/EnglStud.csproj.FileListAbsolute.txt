@@ -69,3 +69,4 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Tex
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Text.Json.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.ValueTuple.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.AssemblyReference.cache

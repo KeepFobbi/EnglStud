@@ -37,8 +37,9 @@ namespace EnglStud_Server.Entities
             this.Password = Password;
             this.Email = Email;
         }
-        public User(string Login, string Password)
-        {            
+        public User(int Type, string Login, string Password)
+        {
+            setType(Type);
             this.Login = Login;
             this.Password = Password;            
         }

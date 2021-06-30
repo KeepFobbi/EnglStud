@@ -21,11 +21,10 @@ namespace EnglStud
     /// </summary>
     public partial class AuthWindow : Window
     {
+        TcpConnection connection;
         public AuthWindow()
         {
             InitializeComponent();
-            TcpConnection tcpConnection = new TcpConnection(null);
-            tcpConnection.SendToServer();
         }
 
         private void Button_SignUp_Click(object sender, RoutedEventArgs e)
@@ -37,7 +36,27 @@ namespace EnglStud
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            string login = textBoxLogin.Text.Trim();
+            string pass = textBoxPass.Password.Trim();
+
+            User user = new User(1, login, pass);
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(user);// to do
+
+            connection = new TcpConnection(JsonString);
+
+            connection.SendToServer();
+            if (connection.Response == "ok")
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Is there something wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                textBoxLogin.Background = Brushes.PaleVioletRed;
+                textBoxPass.Background = Brushes.PaleVioletRed;
+            }
 
 
             //MainWindow mainWindow = new MainWindow();

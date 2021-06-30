@@ -8,7 +8,7 @@ namespace EnglStud.Entities
 {
     public class User
     {
-        private int type;
+        public int type { get; set; } // to do
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
@@ -23,7 +23,7 @@ namespace EnglStud.Entities
             return type;
         }
 
-        User() { }
+        public User() { }
         public User(string Login, string Password, string Email)
         {
             this.Login = Login;
@@ -37,8 +37,9 @@ namespace EnglStud.Entities
             this.Password = Password;
             this.Email = Email;
         }
-        public User(string Login, string Password)
+        public User(int Type, string Login, string Password)
         {
+            setType(Type);
             this.Login = Login;
             this.Password = Password;
         }

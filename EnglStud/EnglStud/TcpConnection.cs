@@ -14,7 +14,9 @@ namespace EnglStud
         int port = 8005; // порт сервера
         string address = "127.0.0.1"; // адрес сервера
         public string message = null;
+        public string Response = "";
 
+        public TcpConnection() { }
         public TcpConnection(string message)
         {
             this.message = message;
@@ -44,7 +46,7 @@ namespace EnglStud
                     builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                 }
                 while (socket.Available > 0);
-                MessageBox.Show("ответ сервера: " + builder.ToString());
+                Response = builder.ToString();               
 
                 // закрываем сокет
                 socket.Shutdown(SocketShutdown.Both);

@@ -56,34 +56,40 @@ namespace EnglStud_Server
                     var loginSchemaFrame = NJsonSchema.JsonSchema.FromType<User>();
                     JSchema loginSchema = JSchema.Parse(loginSchemaFrame.ToJson().ToString());
 
-                    if (JObject.Parse(JsonString).IsValid(loginSchema)) //Sign Up
+                    if (JObject.Parse(JsonString).IsValid(loginSchema))
                     {
                         //Deserialize object
-                        User restoredUser = new User();
+                        User restoredUser = new User(); // object from client
                         restoredUser = JsonConvert.DeserializeObject<User>(JsonString);
 
-                        DbMainContext db = new DbMainContext();
+                        using (DbMainContext db = new DbMainContext())
+                        {
+                            if (restoredUser.getType() == 0) // add to db (Sign Up)
+                            {
+                                User user = db.Users.FirstOrDefault(p => p.Login == restoredUser.Login);
+                                if (user == null)
+                                {
+                                    db.Users.Add(restoredUser);
+                                    db.SaveChanges();
 
-                        // to do
-                        //user user = new user("test4", "test4", "test4@ukr.net"); // create a user object
-                        //user user2 = new user(1, "test", "test", "test@ukr.net");
+                                    Response("ok");
+                                    Console.WriteLine("objects was added... Login: " + restoredUser.Login);
+                                }
+                                else                                
+                                    Response("err");
+                            }
+                            else if (restoredUser.getType() == 1) // select (Sign In)
+                            {
+                                //var users_TryAuth = (from user in db.Users where user.Login == restoredUser.Login select user).ToList();
+                                User user = db.Users.FirstOrDefault(p => p.Login == restoredUser.Login);
+                                if (user != null)
+                                    Response("ok");
+                                else                                
+                                    Response("err");
+                            }
+                        }
 
-                        //db.users.add(user); // add user object into db
-                        ////db.users.add(user2);
-                        //db.savechanges(); // save db
-                        //console.writeline("objects was added...");
-
-                        //console.readline();
-
-                        //var users = db.users;
-                        //console.writeline("object list");
-                        //foreach (user u in users)
-                        //{
-                        //    console.writeline("{0}.{1} - {2} - {3}", u.id, u.login, u.password, u.email);
-                        //}
-                        //console.writeline(user2.gettype());
-
-                        Console.WriteLine(restoredUser.Login);
+                        
                     }
                 }
             }

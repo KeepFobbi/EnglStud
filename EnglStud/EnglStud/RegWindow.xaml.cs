@@ -21,6 +21,7 @@ namespace EnglStud
     /// </summary>
     public partial class RegWindow : Window
     {
+        TcpConnection connection;
         public RegWindow()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace EnglStud
             if (login.Length < 5)
             {
                 textBoxLogin.ToolTip = "Not corect";
-                textBoxLogin.Background = Brushes.Red;
+                textBoxLogin.Background = Brushes.PaleVioletRed;
             }
             else
             {
@@ -53,7 +54,7 @@ namespace EnglStud
             if (pass.Length < 5)
             {
                 textBoxPass.ToolTip = "Not corect";
-                textBoxPass.Background = Brushes.Red;
+                textBoxPass.Background = Brushes.PaleVioletRed;
             }
             else
             {
@@ -63,7 +64,7 @@ namespace EnglStud
             if (pass != rePass)
             {
                 textBoxPassRe.ToolTip = "Not corect";
-                textBoxPassRe.Background = Brushes.Red;
+                textBoxPassRe.Background = Brushes.PaleVioletRed;
             }
             else
             {
@@ -73,7 +74,7 @@ namespace EnglStud
             if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
             {
                 textBoxEmail.ToolTip = "Not corect";
-                textBoxEmail.Background = Brushes.Red;
+                textBoxEmail.Background = Brushes.PaleVioletRed;
             }
             else
             {
@@ -85,13 +86,25 @@ namespace EnglStud
                 User user = new User(0, login, pass, email);
                 string JsonString = System.Text.Json.JsonSerializer.Serialize(user);
 
-                MessageBox.Show(JsonString);
-                
-                TcpConnection connection = new TcpConnection(JsonString);
+                connection = new TcpConnection(JsonString);
 
-                Thread ThreadConnection = new Thread(new ThreadStart(connection.SendToServer));
-                ThreadConnection.Start();
-                //connection.SendToServer(JsonString);
+                //Thread ThreadConnection = new Thread(new ThreadStart(connection.SendToServer));
+                //ThreadConnection.Start();
+                connection.SendToServer();
+                if (connection.Response == "ok")
+                {
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Is there something wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    textBoxLogin.Background = Brushes.PaleVioletRed;
+                    textBoxPass.Background = Brushes.PaleVioletRed;
+                    textBoxPassRe.Background = Brushes.PaleVioletRed;
+                    textBoxEmail.Background = Brushes.PaleVioletRed;
+                }
             }
         }
     }
