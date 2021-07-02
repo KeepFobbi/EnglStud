@@ -44,42 +44,42 @@ namespace EnglStud
             if (login.Length < 5)
             {
                 textBoxLogin.ToolTip = "Not corect";
-                textBoxLogin.Background = Brushes.PaleVioletRed;
+                textBoxLogin.Foreground = Brushes.Red;
             }
             else
             {
                 textBoxLogin.ToolTip = null;
-                textBoxLogin.Background = Brushes.Transparent;
+                textBoxLogin.Foreground = Brushes.Transparent;
             }
             if (pass.Length < 5)
             {
                 textBoxPass.ToolTip = "Not corect";
-                textBoxPass.Background = Brushes.PaleVioletRed;
+                textBoxPass.Foreground = Brushes.Red;
             }
             else
             {
                 textBoxPass.ToolTip = null;
-                textBoxPass.Background = Brushes.Transparent;
+                textBoxPass.Foreground = Brushes.Transparent;
             }
             if (pass != rePass)
             {
                 textBoxPassRe.ToolTip = "Not corect";
-                textBoxPassRe.Background = Brushes.PaleVioletRed;
+                textBoxPassRe.Foreground = Brushes.Red;
             }
             else
             {
                 textBoxPassRe.ToolTip = null;
-                textBoxPassRe.Background = Brushes.Transparent;
+                textBoxPassRe.Foreground = Brushes.Transparent;
             }
             if (email.Length < 5 || !email.Contains("@") || !email.Contains("."))
             {
                 textBoxEmail.ToolTip = "Not corect";
-                textBoxEmail.Background = Brushes.PaleVioletRed;
+                textBoxEmail.Foreground = Brushes.Red;
             }
             else
             {
                 textBoxEmail.ToolTip = null;
-                textBoxEmail.Background = Brushes.Transparent;
+                textBoxEmail.Foreground = Brushes.Transparent;
             }
             if (textBoxLogin.ToolTip == null && textBoxPass.ToolTip == null && textBoxPassRe.ToolTip == null && textBoxEmail.ToolTip == null)
             {
@@ -100,10 +100,10 @@ namespace EnglStud
                 else
                 {
                     MessageBox.Show("Is there something wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    textBoxLogin.Background = Brushes.PaleVioletRed;
-                    textBoxPass.Background = Brushes.PaleVioletRed;
-                    textBoxPassRe.Background = Brushes.PaleVioletRed;
-                    textBoxEmail.Background = Brushes.PaleVioletRed;
+                    textBoxLogin.Foreground = Brushes.Red;
+                    textBoxPass.Foreground = Brushes.Red;
+                    textBoxPassRe.Foreground = Brushes.Red;
+                    textBoxEmail.Foreground = Brushes.Red;
                 }
             }
         }

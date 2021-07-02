@@ -34,11 +34,11 @@
     <!--Start-->
     <Grid Background="#ffdadada">
         <!--MainBlock-->
-        <Border MinWidth="400" MaxWidth="550" Margin="15" Background="#fff" VerticalAlignment="Center" Padding="30" CornerRadius="20">
+        <Border MinWidth="400" MaxWidth="550" Margin="80" Background="#fff" VerticalAlignment="Center" Padding="30" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel>
+            <StackPanel x:Name="MainField">
                 <TextBlock Text="Welcome to EnglStud!" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
 
             </StackPanel>
@@ -75,10 +75,10 @@
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" MouseUp="ListViewItem_MouseUp">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Margin="4" Kind="Pencil" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>                            
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">

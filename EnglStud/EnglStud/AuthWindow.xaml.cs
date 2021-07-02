@@ -54,8 +54,8 @@ namespace EnglStud
             else
             {
                 MessageBox.Show("Is there something wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                textBoxLogin.Background = Brushes.PaleVioletRed;
-                textBoxPass.Background = Brushes.PaleVioletRed;
+                textBoxLogin.Foreground = Brushes.Red;
+                textBoxPass.Foreground = Brushes.Red;
             }
 
 

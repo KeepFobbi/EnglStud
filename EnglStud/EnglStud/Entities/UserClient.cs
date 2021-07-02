@@ -14,15 +14,6 @@ namespace EnglStud.Entities
         public string Password { get; set; }
         public string Email { get; set; }
 
-        public void setType(int Type)
-        {
-            type = Type;
-        }
-        public int getType()
-        {
-            return type;
-        }
-
         public User() { }
         public User(string Login, string Password, string Email)
         {
@@ -32,14 +23,14 @@ namespace EnglStud.Entities
         }
         public User(int Type, string Login, string Password, string Email)
         {
-            setType(Type);
+            type = Type;
             this.Login = Login;
             this.Password = Password;
             this.Email = Email;
         }
         public User(int Type, string Login, string Password)
         {
-            setType(Type);
+            type = Type;
             this.Login = Login;
             this.Password = Password;
         }

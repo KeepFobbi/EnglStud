@@ -64,7 +64,7 @@ namespace EnglStud_Server
 
                         using (DbMainContext db = new DbMainContext())
                         {
-                            if (restoredUser.getType() == 0) // add to db (Sign Up)
+                            if (restoredUser.type == 0) // add to db (Sign Up)
                             {
                                 User user = db.Users.FirstOrDefault(p => p.Login == restoredUser.Login);
                                 if (user == null)
@@ -78,7 +78,7 @@ namespace EnglStud_Server
                                 else                                
                                     Response("err");
                             }
-                            else if (restoredUser.getType() == 1) // select (Sign In)
+                            else if (restoredUser.type == 1) // select (Sign In)
                             {
                                 //var users_TryAuth = (from user in db.Users where user.Login == restoredUser.Login select user).ToList();
                                 User user = db.Users.FirstOrDefault(p => p.Login == restoredUser.Login);
