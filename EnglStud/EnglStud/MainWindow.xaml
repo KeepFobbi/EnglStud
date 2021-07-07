@@ -38,9 +38,26 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel x:Name="MainField">
-                <TextBlock Text="Welcome to EnglStud!" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+            <StackPanel x:Name="MainFeild">
+                
+                <StackPanel x:Name="Main_Field" Visibility="Collapsed"> <!--First Button-->
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Text="Start exercise" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+                        <Button  HorizontalAlignment="Right" Content="Random" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Margin="0 0 0 15"/>
+                    </Grid>
+                    <TextBox materialDesign:HintAssist.Hint="Enter word"/>
+                    <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                </StackPanel>
 
+                <StackPanel x:Name="AddNewWord_Field" Visibility="Visible"> <!--Second Button-->
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Text="Add new word" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+                        <Button  HorizontalAlignment="Right" Content="Random" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="MaterialDesignOutlinedButton" Margin="0 0 0 15"/>
+                    </Grid>
+                    <TextBox materialDesign:HintAssist.Hint="Enter word"/>
+                    <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                </StackPanel>  
+                
             </StackPanel>
         </Border>
         <!--Menu-->

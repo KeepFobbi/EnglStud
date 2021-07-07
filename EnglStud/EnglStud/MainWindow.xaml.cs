@@ -49,9 +49,7 @@ namespace EnglStud
 
         private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            TextBox box = new TextBox();
-            box.Text = "Test";
-            MainField.Children.Add(box);
+            AddNewWord_Field.Visibility = Visibility.Visible;
         }
     }
 }
