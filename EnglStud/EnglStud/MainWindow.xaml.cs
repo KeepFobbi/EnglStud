@@ -51,5 +51,10 @@ namespace EnglStud
         {
             AddNewWord_Field.Visibility = Visibility.Visible;
         }
+
+        private void AddRandom_Word_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
