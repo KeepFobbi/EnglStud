@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglStud.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,10 @@ namespace EnglStud
     /// </summary>
     public partial class MainWindow : Window
     {
+        ApplicationContext db;
         public MainWindow()
         {
+            db = new ApplicationContext();
             InitializeComponent();
         }
 
@@ -54,7 +57,14 @@ namespace EnglStud
 
         private void AddRandom_Word_Click(object sender, RoutedEventArgs e)
         {
-
+            List<Word> users = db.Words.ToList();
+            string str = "";
+            foreach (Word user in users)
+            {
+                str += "Login: " + user.WordInEnglish + " | ";
+                Console.WriteLine(str);
+            }
+                
         }
     }
 }
