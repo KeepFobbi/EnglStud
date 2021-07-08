@@ -1,6 +1,8 @@
 ﻿using EnglStud.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,16 +57,18 @@ namespace EnglStud
             AddNewWord_Field.Visibility = Visibility.Visible;
         }
 
-        private void AddRandom_Word_Click(object sender, RoutedEventArgs e)
+        private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // to do
         {
-            List<Word> users = db.Words.ToList();
-            string str = "";
-            foreach (Word user in users)
-            {
-                str += "Login: " + user.WordInEnglish + " | ";
-                Console.WriteLine(str);
-            }
-                
+            Random rnd = new Random();
+            
+            Word word = db.Words.Find(rnd.Next(2));
+
+            var configuration = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            List<Word> words = db.Words.ToList();
+            words.Count(); //to do
+            
+            
         }
     }
 }

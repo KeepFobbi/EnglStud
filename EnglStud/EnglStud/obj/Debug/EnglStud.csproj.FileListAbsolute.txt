@@ -79,3 +79,6 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Dat
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Data.SQLite.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\DataWord.db
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Microsoft.Data.Sqlite.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Microsoft.Data.Sqlite.xml
