@@ -30,9 +30,10 @@ namespace EnglStud
             InitializeComponent();
         }
 
-        private void Button_Test1_Click(object sender, RoutedEventArgs e)
+        public void CollapseAllElements()
         {
-            MessageBox.Show("qwe");
+            foreach (StackPanel stack in MainFeild.Children)
+                stack.Visibility = Visibility.Collapsed;
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
@@ -52,23 +53,33 @@ namespace EnglStud
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
         }
 
-        private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e)
+        private void AddNewWord_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            CollapseAllElements();
             AddNewWord_Field.Visibility = Visibility.Visible;
+        }
+
+        private void StartTask_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            CollapseAllElements();
+            StartTask_Field.Visibility = Visibility.Visible;
         }
 
         private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // to do
         {
             Random rnd = new Random();
-            
-            Word word = db.Words.Find(rnd.Next(2));
-
-            var configuration = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
             List<Word> words = db.Words.ToList();
-            words.Count(); //to do
-            
-            
+            Word word = db.Words.Find(rnd.Next(2, words.Count()));
+
+            CollapseAllElements();
+            Choose_Random_Word_Field.Visibility = Visibility.Visible;
+            Engl_Word_Choose.Text = word.WordInEnglish;
+            Translate_Word_Choose.Text = word.Translation;
+        }
+
+        private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e) // Test
+        {
+            CollapseAllElements();
         }
     }
 }
