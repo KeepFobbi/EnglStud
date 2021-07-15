@@ -62,8 +62,8 @@
                         <TextBlock x:Name="Translate_Word_Choose" HorizontalAlignment="Center" Text="[Translate]" FontSize="20" Margin="0 30 0 15"/>
                     </Grid>
                     <Grid>
-                        <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
-                        <Button Click="AddRandom_Word_Click"  HorizontalAlignment="Left" Margin="0 10 0 0" Content="Skip" Style="{StaticResource MaterialDesignOutlinedButton}"/>
+                        <Button Click="AddRandom_Word_Click" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                        <Button Click="Random_Word_Click"  HorizontalAlignment="Left" Margin="0 10 0 0" Content="Skip" Style="{StaticResource MaterialDesignOutlinedButton}"/>
                     </Grid>
                 </StackPanel>
 

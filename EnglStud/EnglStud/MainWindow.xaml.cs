@@ -28,10 +28,22 @@ namespace EnglStud
     /// </summary>
     public partial class MainWindow : Window
     {
+        TcpConnection connection;
         ApplicationContext db;
         List<Word> words;
+        Word word;
+        int UserId;
+
         public MainWindow()
         {
+            UserId = 1;
+            db = new ApplicationContext();
+            words = db.Words.ToList();
+            InitializeComponent();
+        }
+        public MainWindow(int UserId)
+        { 
+            this.UserId = UserId;
             db = new ApplicationContext();
             words = db.Words.ToList();
             InitializeComponent();
@@ -70,18 +82,50 @@ namespace EnglStud
         {
             CollapseAllElements();
             StartTask_Field.Visibility = Visibility.Visible;
+
+            Response_Event @event = new Response_Event(); // to do
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(words); // JsonSerializer
+
+            connection = new TcpConnection(JsonString);
+            connection.SendToServer();
         }
 
-        private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // to do this
+        private void Random_Word_Click(object sender, RoutedEventArgs e) // to do this
         {
             Random rnd = new Random();
-            Word word = db.Words.Find(rnd.Next(2, words.Count()));
+            word = db.Words.Find(rnd.Next(2, words.Count()));
 
             CollapseAllElements();
             Choose_Random_Word_Field.Visibility = Visibility.Visible;
             Engl_Word_Choose.Text = word.WordInEnglish;
             Translate_Word_Choose.Text = word.Translation;
         }
+
+        private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // to do this
+        {
+            WordsToServer words = new WordsToServer(word.Id, 0, UserId);
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(words); // JsonSerializer
+
+            connection = new TcpConnection(JsonString);
+            connection.SendToServer();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // -----------------------------Deep Code------------------------------- //
+
 
         private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e) // Test CollapseAllElements();
         {

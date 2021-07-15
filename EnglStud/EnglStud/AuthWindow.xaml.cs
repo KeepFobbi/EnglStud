@@ -40,14 +40,15 @@ namespace EnglStud
             string pass = textBoxPass.Password.Trim();
 
             User user = new User(1, login, pass);
-            string JsonString = System.Text.Json.JsonSerializer.Serialize(user);// to do
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(user); // JsonSerializer
 
             connection = new TcpConnection(JsonString);
 
             connection.SendToServer();
-            if (connection.Response == "ok")
+            
+            if (connection.Response.message == "ok")
             {
-                MainWindow main = new MainWindow();
+                MainWindow main = new MainWindow(connection.Response.Id);
                 main.Show();
                 Close();
             }

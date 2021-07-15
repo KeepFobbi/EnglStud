@@ -113,7 +113,8 @@
   <ItemGroup>
     <Compile Include="Entities%28DB%29\UserServer.cs" />
     <Compile Include="Json_Classes\Auth_Event.cs" />
-    <Compile Include="OpenConnection.cs" />
+    <Compile Include="Json_Classes\Response_Event.cs" />
+    <Compile Include="OpenConnectionMain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities%28DB%29\DbMainContext.cs" />

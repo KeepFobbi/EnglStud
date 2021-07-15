@@ -130,3 +130,9 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Grpc.Core.
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Grpc.Core.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Grpc.Core.Api.pdb
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Grpc.Core.Api.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Namotion.Reflection.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Newtonsoft.Json.Schema.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\NJsonSchema.dll
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Namotion.Reflection.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Newtonsoft.Json.Schema.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\NJsonSchema.xml

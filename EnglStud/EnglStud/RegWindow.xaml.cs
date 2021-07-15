@@ -91,9 +91,9 @@ namespace EnglStud
                 //Thread ThreadConnection = new Thread(new ThreadStart(connection.SendToServer));
                 //ThreadConnection.Start();
                 connection.SendToServer();
-                if (connection.Response == "ok")
+                if (connection.Response.message == "ok")
                 {
-                    MainWindow main = new MainWindow();
+                    MainWindow main = new MainWindow(connection.Response.Id);
                     main.Show();
                     Close();
                 }
