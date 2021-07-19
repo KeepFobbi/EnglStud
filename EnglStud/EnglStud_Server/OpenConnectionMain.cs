@@ -58,7 +58,10 @@ namespace EnglStud_Server
                     JSchema loginSchema = JSchema.Parse(loginSchemaFrame.ToJson().ToString());
                     
                     var clientSchemaFrame = NJsonSchema.JsonSchema.FromType<Response_Event>();
-                    JSchema clientSchema = JSchema.Parse(loginSchemaFrame.ToJson().ToString());
+                    JSchema clientSchema = JSchema.Parse(clientSchemaFrame.ToJson().ToString());
+
+                    var wordSchemaFrame = NJsonSchema.JsonSchema.FromType<Word>();
+                    JSchema wordSchema = JSchema.Parse(wordSchemaFrame.ToJson().ToString());
 
                     if (JObject.Parse(JsonString).IsValid(loginSchema))
                     {
@@ -98,13 +101,39 @@ namespace EnglStud_Server
                                     Response("err");
                             }
                         }
-
-                        
                     }
 
-                    if (JObject.Parse(JsonString).IsValid(loginSchema))
+                    if (JObject.Parse(JsonString).IsValid(clientSchema))
                     {
+                        Response_Event @event = new Response_Event();
+                        @event = JsonConvert.DeserializeObject<Response_Event>(JsonString);
 
+                        using (DbMainContext db = new DbMainContext())
+                        {
+                            if (@event.Id != 0)
+                            {
+                                // to do request word list
+                            }
+                            else if (@event.message != null)
+                            {
+
+                            }
+                        }
+                    }
+
+                    if (JObject.Parse(JsonString).IsValid(wordSchema))
+                    {
+                        Word words = new Word();
+                        words = JsonConvert.DeserializeObject<Word>(JsonString);
+
+                        using (DbMainContext db = new DbMainContext())
+                        {
+                            if (words.IdKnowWords != 0 && words.IdWordUnStudy == 0)
+                            {
+                                db.Words.Add(words);
+                                db.SaveChanges();
+                            }
+                        }
                     }
                 }
             }

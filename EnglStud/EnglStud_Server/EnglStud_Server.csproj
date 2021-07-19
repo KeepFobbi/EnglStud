@@ -114,6 +114,7 @@
     <Compile Include="Entities%28DB%29\UserServer.cs" />
     <Compile Include="Json_Classes\Auth_Event.cs" />
     <Compile Include="Json_Classes\Response_Event.cs" />
+    <Compile Include="Json_Classes\Word.cs" />
     <Compile Include="OpenConnectionMain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

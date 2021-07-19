@@ -17,22 +17,5 @@ namespace EnglStud
         public DbSet<Word> Words { get; set; }
 
         public ApplicationContext() : base("DefaultConnection") { }
-
-        public void RowCount()
-        {
-            try
-            {
-                var configuration = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                using (SQLiteConnection conn = new SQLiteConnection(configuration))
-                {
-                    var command = new SQLiteCommand(conn);
-                    command.CommandText = "SELECT COUNT(Id) FROM Words";
-                    command.CommandType = CommandType.Text;
-                    int сount = (int)command.ExecuteScalar();
-                    Console.WriteLine(сount);
-                }
-            }
-            catch (Exception) { }
-        }
     }
 }

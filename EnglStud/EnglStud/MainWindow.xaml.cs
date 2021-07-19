@@ -34,7 +34,7 @@ namespace EnglStud
         Word word;
         int UserId;
 
-        public MainWindow()
+        public MainWindow() // for test
         {
             UserId = 1;
             db = new ApplicationContext();
@@ -83,14 +83,16 @@ namespace EnglStud
             CollapseAllElements();
             StartTask_Field.Visibility = Visibility.Visible;
 
-            Response_Event @event = new Response_Event(); // to do
-            string JsonString = System.Text.Json.JsonSerializer.Serialize(words); // JsonSerializer
+            Response_Event @event = new Response_Event(UserId);
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(@event); // JsonSerializer
 
             connection = new TcpConnection(JsonString);
             connection.SendToServer();
+
+            var s = connection.Response;
         }
 
-        private void Random_Word_Click(object sender, RoutedEventArgs e) // to do this
+        private void Random_Word_Click(object sender, RoutedEventArgs e)
         {
             Random rnd = new Random();
             word = db.Words.Find(rnd.Next(2, words.Count()));

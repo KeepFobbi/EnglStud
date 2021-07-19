@@ -14,7 +14,7 @@ namespace EnglStud.Entities
         public int UserId { get; set; }
 
 
-        WordsToServer() { }
+        public WordsToServer() { }
         public WordsToServer(int IdKnowWords, int IdWordUnStudy, int UserId)
         {
             this.IdKnowWords = IdKnowWords;
