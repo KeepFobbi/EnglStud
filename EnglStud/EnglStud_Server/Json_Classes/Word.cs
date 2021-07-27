@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnglStud_Server.Json_Classes
 {
-    class Word
+    class Word : Response_Event
     {
         public int Id { get; set; }
         public int IdKnowWords { get; set; }

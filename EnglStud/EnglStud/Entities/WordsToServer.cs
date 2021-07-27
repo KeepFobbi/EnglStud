@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnglStud.Entities
 {
-    class WordsToServer
+    class WordsToServer : Response_Event
     {
         public int Id { get; set; }
         public int IdKnowWords { get; set; }

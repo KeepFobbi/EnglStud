@@ -182,6 +182,7 @@
     <Compile Include="Entities\UserClient.cs" />
     <Compile Include="Entities\Word.cs" />
     <Compile Include="Entities\WordsToServer.cs" />
+    <Compile Include="Json_Parse.cs" />
     <Compile Include="RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
     </Compile>

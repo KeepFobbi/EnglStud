@@ -54,17 +54,8 @@ namespace EnglStud
 
                 string JsonString = builder.ToString();  // Json Magic
 
-                var loginSchemaFrame = NJsonSchema.JsonSchema.FromType<Response_Event>();
-                JSchema loginSchema = JSchema.Parse(loginSchemaFrame.ToJson().ToString());
-
-                if (JObject.Parse(JsonString).IsValid(loginSchema))
-                {
-                    //Deserialize object
-                    Response_Event restoredEvent = new Response_Event(); // object from client
-                    restoredEvent = JsonConvert.DeserializeObject<Response_Event>(JsonString);
-
-                    Response = restoredEvent;
-                }
+                Json_Parse parse = new Json_Parse(); // new object try
+                Response = parse.Json_Handler(JsonString);
 
                 // закрываем сокет
                 socket.Shutdown(SocketShutdown.Both);

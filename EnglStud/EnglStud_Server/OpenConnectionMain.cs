@@ -103,16 +103,22 @@ namespace EnglStud_Server
                         }
                     }
 
-                    if (JObject.Parse(JsonString).IsValid(clientSchema))
+                    if (JObject.Parse(JsonString).IsValid(clientSchema))        // code 37
                     {
                         Response_Event @event = new Response_Event();
                         @event = JsonConvert.DeserializeObject<Response_Event>(JsonString);
 
                         using (DbMainContext db = new DbMainContext())
                         {
-                            if (@event.Id != 0)
+                            if (@event.Id != 0)                                     // send word list to client
                             {
-                                // to do request word list
+                               var stWords = db.Words.Where(p => p.UserId == @event.Id);
+                                List<Word> words = new List<Word>();
+
+                                foreach (var item in stWords)
+                                    words.Add(new Word(item.IdKnowWords, item.IdWordUnStudy, item.UserId));
+                                
+                                Response(JsonConvert.SerializeObject(words));       //Response to client
                             }
                             else if (@event.message != null)
                             {

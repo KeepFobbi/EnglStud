@@ -78,7 +78,7 @@ namespace EnglStud
             AddNewWord_Field.Visibility = Visibility.Visible;
         }
 
-        private void StartTask_MouseUp(object sender, MouseButtonEventArgs e)
+        private void StartTask_MouseUp(object sender, MouseButtonEventArgs e)  // code 37 UI
         {
             CollapseAllElements();
             StartTask_Field.Visibility = Visibility.Visible;
