@@ -113,12 +113,13 @@ namespace EnglStud_Server
                             if (@event.Id != 0)                                     // send word list to client
                             {
                                var stWords = db.Words.Where(p => p.UserId == @event.Id);
-                                List<Word> words = new List<Word>();
+
+                                ListWordsToClient wordsToClient = new ListWordsToClient();
 
                                 foreach (var item in stWords)
-                                    words.Add(new Word(item.IdKnowWords, item.IdWordUnStudy, item.UserId));
+                                    wordsToClient.wordsList.Add(new Word(item.IdKnowWords, item.IdWordUnStudy, item.UserId));
                                 
-                                Response(JsonConvert.SerializeObject(words));       //Response to client
+                                Response(JsonConvert.SerializeObject(wordsToClient));       //Response to client
                             }
                             else if (@event.message != null)
                             {

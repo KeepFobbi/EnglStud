@@ -19,6 +19,7 @@ namespace EnglStud
         string address = "127.0.0.1"; // адрес сервера
         public string message = null;
         public Response_Event Response = null;
+        public ListWordsToClient wordsResponse = null;
 
         public TcpConnection() { }
         public TcpConnection(string message)
@@ -54,10 +55,33 @@ namespace EnglStud
 
                 string JsonString = builder.ToString();  // Json Magic
 
-                Json_Parse parse = new Json_Parse(); // new object try
-                Response = parse.Json_Handler(JsonString);
+                //------------------------------Json Parse------------------------------------//
 
-                // закрываем сокет
+                var loginSchemaFrame = NJsonSchema.JsonSchema.FromType<Response_Event>();
+                JSchema loginSchema = JSchema.Parse(loginSchemaFrame.ToJson().ToString());
+
+                var wordsSchemaFrame = NJsonSchema.JsonSchema.FromType<ListWordsToClient>();
+                JSchema wordsSchema = JSchema.Parse(wordsSchemaFrame.ToJson().ToString());
+
+
+                if (JObject.Parse(JsonString).IsValid(wordsSchema)) // code 37
+                {
+                    ListWordsToClient restoredWords = new ListWordsToClient();
+                    restoredWords = JsonConvert.DeserializeObject<ListWordsToClient>(JsonString);
+
+                    wordsResponse = restoredWords;
+                }
+                else if (JObject.Parse(JsonString).IsValid(loginSchema))
+                {
+                    //Deserialize object
+                    Response_Event restoredEvent = new Response_Event(); // object from client
+                    restoredEvent = JsonConvert.DeserializeObject<Response_Event>(JsonString);
+
+                    Response = restoredEvent;
+                }
+                
+
+                // закрываем сокет-------------------------------------------------------------//
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
             }
@@ -65,7 +89,6 @@ namespace EnglStud
             {
                 Console.WriteLine(ex.Message);
             }
-            Console.Read();
         }
     }
 }

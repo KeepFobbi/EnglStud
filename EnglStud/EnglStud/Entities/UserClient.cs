@@ -8,7 +8,7 @@ namespace EnglStud.Entities
 {
     public class User
     {
-        public int type { get; set; } // to do
+        public int type { get; set; }
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

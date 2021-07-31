@@ -34,7 +34,7 @@ namespace EnglStud_Server.Entities
         {
             type = Type;
             this.Login = Login;
-            this.Password = Password;            
+            this.Password = Password;
         }
     }
 }

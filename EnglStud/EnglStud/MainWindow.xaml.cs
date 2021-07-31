@@ -89,7 +89,11 @@ namespace EnglStud
             connection = new TcpConnection(JsonString);
             connection.SendToServer();
 
-            var s = connection.Response;
+            var s = connection.wordsResponse; // Words list
+            foreach (var item in s.wordsList)
+            {
+                Console.WriteLine(item.UserId);
+            }
         }
 
         private void Random_Word_Click(object sender, RoutedEventArgs e)
