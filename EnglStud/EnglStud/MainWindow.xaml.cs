@@ -31,6 +31,8 @@ namespace EnglStud
         TcpConnection connection;
         ApplicationContext db;
         List<Word> words;
+        List<int> learnedWords = new List<int>();
+        Stack<int> studingWords = new Stack<int>();
         Word word;
         int UserId;
 
@@ -89,20 +91,28 @@ namespace EnglStud
             connection = new TcpConnection(JsonString);
             connection.SendToServer();
 
-            var s = connection.wordsResponse; // Words list
-            foreach (var item in s.wordsList)
+            foreach (var item in connection.wordsResponse.wordsList) // Words list to 2x List
             {
-                Console.WriteLine(item.UserId);
+                if (item.IdKnowWords != 0)
+                    learnedWords.Add(item.IdKnowWords);
+                if (item.IdWordUnStudy != 0)
+                    studingWords.Push(item.IdWordUnStudy);
             }
+
+            
+            word = db.Words.Find(studingWords.Peek()); // to do, need other list for one word
+            Studing_word_TxtBlock.Text = word.WordInEnglish;
         }
 
         private void Random_Word_Click(object sender, RoutedEventArgs e)
         {
+            CollapseAllElements();
+            Choose_Random_Word_Field.Visibility = Visibility.Visible;
+
             Random rnd = new Random();
             word = db.Words.Find(rnd.Next(2, words.Count()));
 
-            CollapseAllElements();
-            Choose_Random_Word_Field.Visibility = Visibility.Visible;
+            
             Engl_Word_Choose.Text = word.WordInEnglish;
             Translate_Word_Choose.Text = word.Translation;
         }

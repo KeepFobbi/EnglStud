@@ -40,12 +40,16 @@
             </Border.Effect>
             <StackPanel x:Name="MainFeild" TextOptions.TextFormattingMode="Display" RenderOptions.BitmapScalingMode="NearestNeighbor">
 
-                <StackPanel x:Name="StartTask_Field" Visibility="Collapsed"> <!--First Button-->
+                <StackPanel x:Name="StartTask_Field" Visibility="Visible"> <!--First Button-->
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Text="Start exercise" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
-                        <Button  HorizontalAlignment="Right" Content="Random" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="0 0 0 15"/>
                     </Grid>
-                    <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                    <Grid>
+                        <TextBlock x:Name="Studing_word_TxtBlock" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>
+                    </Grid>
+                    <Grid>
+                        <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                    </Grid>                    
                 </StackPanel>
                 <StackPanel x:Name="AddNewWord_Field" Visibility="Collapsed"> <!--Second Button-->
                     <Grid>
@@ -55,7 +59,7 @@
                     <TextBox x:Name="EnteredUserWord_TextBox" materialDesign:HintAssist.Hint="Enter word"/>
                     <Button x:Name="CheckUserWord_Add" Click="CheckUserWord_Add_Click" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
                 </StackPanel>
-                <StackPanel x:Name="Choose_Random_Word_Field" Visibility="Visible"> <!--Choose a random word-->
+                <StackPanel x:Name="Choose_Random_Word_Field" Visibility="Collapsed"> <!--Choose a random word-->
                     <!--<TextBlock HorizontalAlignment="Left" Text="Choose a word" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>-->
                     <Grid>
                         <TextBlock x:Name="Engl_Word_Choose" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="15 0"/>
