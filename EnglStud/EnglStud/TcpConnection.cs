@@ -63,8 +63,12 @@ namespace EnglStud
                 var wordsSchemaFrame = NJsonSchema.JsonSchema.FromType<ListWordsToClient>();
                 JSchema wordsSchema = JSchema.Parse(wordsSchemaFrame.ToJson().ToString());
 
-
-                if (JObject.Parse(JsonString).IsValid(wordsSchema)) // code 37
+                if (message == "ok")
+                {
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                }
+                else if (JObject.Parse(JsonString).IsValid(wordsSchema)) // code 37
                 {
                     ListWordsToClient restoredWords = new ListWordsToClient();
                     restoredWords = JsonConvert.DeserializeObject<ListWordsToClient>(JsonString);

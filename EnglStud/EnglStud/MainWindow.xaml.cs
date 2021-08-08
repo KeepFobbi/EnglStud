@@ -100,8 +100,17 @@ namespace EnglStud
             }
 
             
-            word = db.Words.Find(studingWords.Peek()); // to do, need other list for one word
+            word = db.Words.Find(studingWords.Pop()); // to do, need other list for one word
             Studing_word_TxtBlock.Text = word.WordInEnglish;
+        }
+
+        private void Exercise_next_word_Click(object sender, RoutedEventArgs e) // btn next word
+        {
+            if (studingWords.Count != 0)
+            {
+                word = db.Words.Find(studingWords.Pop());
+                Studing_word_TxtBlock.Text = word.WordInEnglish;
+            }
         }
 
         private void Random_Word_Click(object sender, RoutedEventArgs e)
@@ -117,13 +126,14 @@ namespace EnglStud
             Translate_Word_Choose.Text = word.Translation;
         }
 
-        private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // to do this
+        private void AddRandom_Word_Click(object sender, RoutedEventArgs e) // code 36
         {
-            WordsToServer words = new WordsToServer(word.Id, 0, UserId);
+            WordsToServer words = new WordsToServer(0, word.Id, UserId); // + new word
             string JsonString = System.Text.Json.JsonSerializer.Serialize(words); // JsonSerializer
 
             connection = new TcpConnection(JsonString);
-            connection.SendToServer();
+            Thread thread = new Thread(new ThreadStart(connection.SendToServer));
+            thread.Start();
         }
 
 
@@ -154,6 +164,8 @@ namespace EnglStud
             //string kruc = TranslateText1(str);
             //Console.WriteLine(kruc);
         }
+
+        
 
         //public string TranslateText(string input)
         //{

@@ -128,17 +128,19 @@ namespace EnglStud_Server
                         }
                     }
 
-                    if (JObject.Parse(JsonString).IsValid(wordSchema))
+                    if (JObject.Parse(JsonString).IsValid(wordSchema)) // code 36
                     {
                         Word words = new Word();
                         words = JsonConvert.DeserializeObject<Word>(JsonString);
 
                         using (DbMainContext db = new DbMainContext())
                         {
-                            if (words.IdKnowWords != 0 && words.IdWordUnStudy == 0)
+                            if (words.IdKnowWords == 0 && words.IdWordUnStudy != 0)
                             {
                                 db.Words.Add(words);
                                 db.SaveChanges();
+
+                                Response();
                             }
                         }
                     }
@@ -150,7 +152,7 @@ namespace EnglStud_Server
             }
         }
 
-        public void Response(string message = "ваше сообщение доставлено")
+        public void Response(string message = "ok")
         {
             // отправляем ответ            
             data = Encoding.Unicode.GetBytes(message);

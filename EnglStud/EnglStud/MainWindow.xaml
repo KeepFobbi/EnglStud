@@ -48,7 +48,7 @@
                         <TextBlock x:Name="Studing_word_TxtBlock" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>
                     </Grid>
                     <Grid>
-                        <Button HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
+                        <Button Click="Exercise_next_word_Click" x:Name="Exercise_next_word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
                     </Grid>                    
                 </StackPanel>
                 <StackPanel x:Name="AddNewWord_Field" Visibility="Collapsed"> <!--Second Button-->
@@ -105,7 +105,7 @@
                             <TextBlock Text="Home" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60" MouseUp="AddRandom_Word_Click"><!--AddNewWord_MouseUp-->
+                    <ListViewItem Height="60" MouseUp="Random_Word_Click"><!--AddNewWord_MouseUp-->
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Margin="4" Kind="Pencil" Width="25" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>                            
