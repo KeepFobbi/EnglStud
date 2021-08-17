@@ -44,12 +44,39 @@
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Text="Start exercise" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
                     </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Studing_word_TxtBlock" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>
+                    <Grid x:Name="Ex_Spell_Word" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>                           
+                            <!-- This column will receive all remaining width -->
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>                            
+                            <!-- This row will receive all remaining Height -->
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="Studing_word_TxtBlock_Main" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_0" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="0 0 0 15"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_1" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="0 0 0 15"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_2" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="0 0 0 15"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_3" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="0 0 0 15"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_4" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" Text="[Word]" FontSize="20" Margin="0 0 0 15"/>
+                        <!--<Grid>
+                            <TextBlock x:Name="Studing_word_TxtBlock" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>                        
+                        </Grid>
+                        <Grid>                        
+                            <TextBlock x:Name="test" HorizontalAlignment="Center" Text="[Word]" FontSize="19" Margin="0 0 0 15"/>
+                        </Grid>
+                        <Grid>
+                            <Button Click="Exercise_next_word_Click" x:Name="Exercise_next_word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
+                        </Grid>-->
                     </Grid>
-                    <Grid>
-                        <Button Click="Exercise_next_word_Click" x:Name="Exercise_next_word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
-                    </Grid>                    
                 </StackPanel>
                 <StackPanel x:Name="AddNewWord_Field" Visibility="Collapsed"> <!--Second Button-->
                     <Grid>

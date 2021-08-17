@@ -100,8 +100,18 @@ namespace EnglStud
             }
 
             
-            word = db.Words.Find(studingWords.Pop()); // to do, need other list for one word
-            Studing_word_TxtBlock.Text = word.WordInEnglish;
+            word = db.Words.Find(studingWords.Pop()); // to do, need other list for one word          
+
+            Exersice_Spell_EnglWord(word);
+        }
+
+        private void Exersice_Spell_EnglWord(Word word)
+        {
+            Studing_word_TxtBlock.Text = word.Translation;
+
+            char[] charArrey = word.WordInEnglish.ToCharArray();
+
+            // to do
         }
 
         private void Exercise_next_word_Click(object sender, RoutedEventArgs e) // btn next word
