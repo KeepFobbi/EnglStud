@@ -100,14 +100,68 @@ namespace EnglStud
             }
 
             
-            word = db.Words.Find(studingWords.Pop()); // to do, need other list for one word          
+            word = db.Words.Find(studingWords.Pop()); // engl word for studing
 
-            Exersice_Spell_EnglWord(word);
+            Exersice_Choose_Translate_Word(word); // call ecercise function <-
         }
+
+        private void Exersice_Choose_Translate_Word(Word choseWord) // to do ========================================================================
+        {
+            List<TextBlock> textBlocks_ChoWord = Ex_Spell_Word.Children.OfType<TextBlock>().ToList();
+            textBlocks_ChoWord.RemoveAt(0);
+
+            Studing_word_TxtBlock_Main.Text = choseWord.WordInEnglish;
+            Studing_word_TxtBlock_Main.Tag = choseWord.Translation;
+            TestBox.Text = choseWord.Translation;
+
+            int i = 0;
+            Random rnd = new Random();
+            int randI = rnd.Next(0, textBlocks_ChoWord.Count); ;
+            foreach (TextBlock item in textBlocks_ChoWord)
+            {
+                
+                
+                word = db.Words.Find(rnd.Next(2, words.Count()));
+                item.Text = word.Translation;
+
+               
+                if (i == randI)
+                {
+                    item.Text = choseWord.Translation;
+                }
+                i++;
+            }
+
+            List<TextBlock> s = textBlocks_ChoWord.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
+            
+            // to do
+        }
+
+        private void Studing_word_TxtBlock_0_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var temp = sender as TextBlock;
+            if (Studing_word_TxtBlock_Main.Tag.ToString() == temp.Text)
+            {
+                MessageBox.Show("+");
+            }
+        }
+
+        private void Studing_word_TxtBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var temp = sender as TextBlock;
+            temp.Foreground = Brushes.Red;
+        }
+
+        private void Studing_word_TxtBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var temp = sender as TextBlock;
+            temp.Foreground = Brushes.Black;
+        }
+
 
         private void Exersice_Spell_EnglWord(Word word)
         {
-            Studing_word_TxtBlock.Text = word.Translation;
+            Studing_word_TxtBlock_Main.Text = word.Translation;
 
             char[] charArrey = word.WordInEnglish.ToCharArray();
 
@@ -119,7 +173,7 @@ namespace EnglStud
             if (studingWords.Count != 0)
             {
                 word = db.Words.Find(studingWords.Pop());
-                Studing_word_TxtBlock.Text = word.WordInEnglish;
+                Studing_word_TxtBlock_Main.Text = word.WordInEnglish;
             }
         }
 
@@ -173,9 +227,15 @@ namespace EnglStud
             //string str = EnteredUserWord_TextBox.Text;
             //string kruc = TranslateText1(str);
             //Console.WriteLine(kruc);
-        }
+        }    
 
-        
+
+
+
+
+
+
+
 
         //public string TranslateText(string input)
         //{

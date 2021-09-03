@@ -186,6 +186,7 @@
     <Compile Include="RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Style\StyleClassForEx1.cs" />
     <Compile Include="TcpConnection.cs" />
     <Page Include="AuthWindow.xaml">
       <SubType>Designer</SubType>
