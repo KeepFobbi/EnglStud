@@ -41,9 +41,24 @@ namespace EnglStud
             UserId = 1;
             db = new ApplicationContext();
             words = db.Words.ToList();
+
+            Response_Event @event = new Response_Event(UserId);
+            string JsonString = System.Text.Json.JsonSerializer.Serialize(@event); // JsonSerializer
+
+            connection = new TcpConnection(JsonString);
+            connection.SendToServer();
+
+            foreach (var item in connection.wordsResponse.wordsList) // Words list to 2x List
+            {
+                if (item.IdKnowWords != 0)
+                    learnedWords.Add(item.IdKnowWords);
+                if (item.IdWordUnStudy != 0)
+                    studingWords.Push(item.IdWordUnStudy);
+            }
+
             InitializeComponent();
         }
-        public MainWindow(int UserId)
+        public MainWindow(int UserId) //Release
         { 
             this.UserId = UserId;
             db = new ApplicationContext();
@@ -51,6 +66,7 @@ namespace EnglStud
             InitializeComponent();
         }
 
+        #region Element Work
         public void CollapseAllElements()
         {
             foreach (StackPanel stack in MainFeild.Children)
@@ -80,32 +96,23 @@ namespace EnglStud
             AddNewWord_Field.Visibility = Visibility.Visible;
         }
 
+        #endregion
+
         private void StartTask_MouseUp(object sender, MouseButtonEventArgs e)  // code 37 UI
         {
             CollapseAllElements();
             StartTask_Field.Visibility = Visibility.Visible;
 
-            Response_Event @event = new Response_Event(UserId);
-            string JsonString = System.Text.Json.JsonSerializer.Serialize(@event); // JsonSerializer
-
-            connection = new TcpConnection(JsonString);
-            connection.SendToServer();
-
-            foreach (var item in connection.wordsResponse.wordsList) // Words list to 2x List
-            {
-                if (item.IdKnowWords != 0)
-                    learnedWords.Add(item.IdKnowWords);
-                if (item.IdWordUnStudy != 0)
-                    studingWords.Push(item.IdWordUnStudy);
-            }
+            
 
             
             word = db.Words.Find(studingWords.Pop()); // engl word for studing
 
-            Exersice_Choose_Translate_Word(word); // call ecercise function <-
+            Exersice_Choose_Translate_Word(word); // call exercise function <-
         }
 
-        private void Exersice_Choose_Translate_Word(Word choseWord) // to do ========================================================================
+        #region Ex1 region Word selecte translate
+        private void Exersice_Choose_Translate_Word(Word choseWord) // EX 1
         {
             List<TextBlock> textBlocks_ChoWord = Ex_Spell_Word.Children.OfType<TextBlock>().ToList();
             textBlocks_ChoWord.RemoveAt(0);
@@ -119,8 +126,6 @@ namespace EnglStud
             int randI = rnd.Next(0, textBlocks_ChoWord.Count); ;
             foreach (TextBlock item in textBlocks_ChoWord)
             {
-                
-                
                 word = db.Words.Find(rnd.Next(2, words.Count()));
                 item.Text = word.Translation;
 
@@ -142,7 +147,11 @@ namespace EnglStud
             var temp = sender as TextBlock;
             if (Studing_word_TxtBlock_Main.Tag.ToString() == temp.Text)
             {
-                MessageBox.Show("+");
+                MessageBox.Show("+"); // true to do
+            }
+            else
+            {
+                // false to do
             }
         }
 
@@ -158,6 +167,55 @@ namespace EnglStud
             temp.Foreground = Brushes.Black;
         }
 
+        #endregion
+
+        #region Ex2 region translate select word
+
+        private void Exersice_Choose_Engl_Word_Test(object sender, RoutedEventArgs e) // TEST
+        {
+            word = db.Words.Find(studingWords.Pop()); // engl word for studing
+            Exersice_Choose_Eng_To_Translate(word);
+        }
+
+        private void Exersice_Choose_Eng_To_Translate(Word choseWord) // EX 2
+        {
+            List<TextBlock> textBlocks_ChoWord = Ex_Spell_Word.Children.OfType<TextBlock>().ToList();
+            textBlocks_ChoWord.RemoveAt(0);
+
+            Studing_word_TxtBlock_Main.Text = choseWord.Translation;
+            Studing_word_TxtBlock_Main.Tag = choseWord.WordInEnglish;
+            TestBox.Text = choseWord.WordInEnglish;
+
+            int i = 0;
+            Random rnd = new Random();
+            int randI = rnd.Next(0, textBlocks_ChoWord.Count); ;
+            foreach (TextBlock item in textBlocks_ChoWord)
+            {
+
+
+                word = db.Words.Find(rnd.Next(2, words.Count()));
+                item.Text = word.WordInEnglish;
+
+
+                if (i == randI)
+                {
+                    item.Text = choseWord.WordInEnglish;
+                }
+                i++;
+            }
+
+            List<TextBlock> s = textBlocks_ChoWord.GroupBy(x => x).Where(g => g.Count() > 1).Select(g => g.Key).ToList();
+
+            // to do
+        }
+
+        #endregion
+
+        #region Ex3 region translate -> spell engl word
+
+
+
+        #endregion
 
         private void Exersice_Spell_EnglWord(Word word)
         {
@@ -227,7 +285,9 @@ namespace EnglStud
             //string str = EnteredUserWord_TextBox.Text;
             //string kruc = TranslateText1(str);
             //Console.WriteLine(kruc);
-        }    
+        }
+
+        
 
 
 
