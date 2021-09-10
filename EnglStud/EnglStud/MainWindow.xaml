@@ -41,21 +41,20 @@
             </Border.Effect>
             <StackPanel x:Name="MainFeild" TextOptions.TextFormattingMode="Display" RenderOptions.BitmapScalingMode="NearestNeighbor"> <!--Work space-->
 
-                <StackPanel x:Name="StartTask_Field" Visibility="Visible">
+                <StackPanel x:Name="StartTask_Field" Visibility="Collapsed">
                     <!--First Button-->
                     <Grid TextOptions.TextFormattingMode="Display">
 
                         <!--<Border BorderBrush="{DynamicResource PrimaryHueMidBrush}" BorderThickness="1"/>-->
                         <TextBlock x:Name="TestBox" HorizontalAlignment="Left" Text="Start exercise" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
                         <Button Click="Exersice_Choose_Engl_Word_Test" x:Name="Exersice_Choose_Engl_Word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
-                        
+
                     </Grid>
                     <Grid TextOptions.TextFormattingMode="Display" x:Name="Ex_Spell_Word" Visibility="Visible">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
-
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100px"/>
@@ -63,24 +62,44 @@
                             <RowDefinition Height="100px"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock x:Name="Studing_word_TxtBlock_Main" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="25"/>
+                        <TextBlock x:Name="Studing_word_TxtBlock_Main" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="25"/>
                         <TextBlock x:Name="Studing_word_TxtBlock_0" MouseLeave="Studing_word_TxtBlock_MouseLeave" MouseEnter="Studing_word_TxtBlock_MouseEnter"  MouseLeftButtonUp="Studing_word_TxtBlock_0_MouseLeftButtonUp" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="[Word]" FontSize="20"/>
                         <TextBlock x:Name="Studing_word_TxtBlock_1" MouseLeave="Studing_word_TxtBlock_MouseLeave" MouseEnter="Studing_word_TxtBlock_MouseEnter" MouseLeftButtonUp="Studing_word_TxtBlock_0_MouseLeftButtonUp" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="[Word]" FontSize="20"/>
                         <TextBlock x:Name="Studing_word_TxtBlock_2" MouseLeave="Studing_word_TxtBlock_MouseLeave" MouseEnter="Studing_word_TxtBlock_MouseEnter" MouseLeftButtonUp="Studing_word_TxtBlock_0_MouseLeftButtonUp" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="[Word]" FontSize="20"/>
                         <TextBlock x:Name="Studing_word_TxtBlock_3" MouseLeave="Studing_word_TxtBlock_MouseLeave" MouseEnter="Studing_word_TxtBlock_MouseEnter" MouseLeftButtonUp="Studing_word_TxtBlock_0_MouseLeftButtonUp" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="[Word]" FontSize="20"/>
                         <TextBlock x:Name="Studing_word_TxtBlock_4" MouseLeave="Studing_word_TxtBlock_MouseLeave" MouseEnter="Studing_word_TxtBlock_MouseEnter" MouseLeftButtonUp="Studing_word_TxtBlock_0_MouseLeftButtonUp" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="[Word]" FontSize="20"/>
-                        <!--<Grid>
-                            <TextBlock x:Name="Studing_word_TxtBlock" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="0 0 0 15"/>                        
-                        </Grid>
-                        <Grid>                        
-                            <TextBlock x:Name="test" HorizontalAlignment="Center" Text="[Word]" FontSize="19" Margin="0 0 0 15"/>
-                        </Grid>
-                        <Grid>
-                            <Button Click="Exercise_next_word_Click" x:Name="Exercise_next_word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
-                        </Grid>-->
-                        
+
+
                     </Grid>
                 </StackPanel>
+                <StackPanel x:Name="Ex3_Spell_EnglWord_Field" Visibility="Visible">
+
+                    <Grid TextOptions.TextFormattingMode="Display">
+                        
+                        <TextBlock x:Name="Test_Jumbled_TextBlock" HorizontalAlignment="Left" Text="Test Jumbled" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+                        <Button Click="Exersice_Choose_Engl_Word_Test" x:Name="qweqweq" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
+
+                    </Grid>
+                    <Grid TextOptions.TextFormattingMode="Display" x:Name="qweqwee" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100px"/>
+                            <RowDefinition Height="100px"/>
+                            <RowDefinition Height="100px"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="Main_Ex3_Word_Translate_TextBlock" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="25"/>
+                        <TextBlock x:Name="Jumbled_letters_TextBlock" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" Text="[Jumbled_Word]" FontSize="25" Margin="25"/>
+                        <TextBox x:Name="Entered_Jumbled_Word_TextBox" KeyDown="Entered_Jumbled_Word_TextBox_KeyDown" FontSize="25" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Enter word"/>
+                        
+                    </Grid>
+
+                </StackPanel>
+                
                 <StackPanel x:Name="AddNewWord_Field" Visibility="Collapsed">
                     <!--Second Button-->
                     <Grid>
