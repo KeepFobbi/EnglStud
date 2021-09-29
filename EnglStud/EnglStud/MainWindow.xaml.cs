@@ -17,6 +17,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -39,10 +40,37 @@ namespace EnglStud
 
         char[] Jumbled_Word = null;
         int Jumbled_Word_i;
+        int Miss_Jumbled_word_Count;
 
-        public MainWindow() // for test
+        List<Word> WrongExersice = new List<Word>();
+
+        static int ExNumb;
+
+        //public MainWindow() // for test
+        //{
+        //    UserId = 1;
+        //    db = new ApplicationContext();
+        //    words = db.Words.ToList();
+
+        //    Response_Event @event = new Response_Event(UserId);
+        //    string JsonString = System.Text.Json.JsonSerializer.Serialize(@event); // JsonSerializer
+
+        //    connection = new TcpConnection(JsonString);
+        //    connection.SendToServer();
+
+        //    foreach (var item in connection.wordsResponse.wordsList) // Words list to 2x List
+        //    {
+        //        if (item.IdKnowWords != 0)
+        //            learnedWords.Add(item.IdKnowWords);
+        //        if (item.IdWordUnStudy != 0)
+        //            studingWords.Push(item.IdWordUnStudy);
+        //    }
+
+        //    InitializeComponent();
+        //}
+        public MainWindow(int UserId) //Release
         {
-            UserId = 1;
+            this.UserId = UserId;
             db = new ApplicationContext();
             words = db.Words.ToList();
 
@@ -62,15 +90,8 @@ namespace EnglStud
 
             InitializeComponent();
         }
-        public MainWindow(int UserId) //Release
-        {
-            this.UserId = UserId;
-            db = new ApplicationContext();
-            words = db.Words.ToList();
-            InitializeComponent();
-        }
 
-        #region Element Work
+        #region Element Work UI
         public void CollapseAllElements()
         {
             foreach (StackPanel stack in MainFeild.Children)
@@ -107,9 +128,6 @@ namespace EnglStud
             CollapseAllElements();
             StartTask_Field.Visibility = Visibility.Visible;
 
-
-
-
             word = db.Words.Find(studingWords.Pop()); // engl word for studing
 
             Exersice_Choose_Translate_Word_Ex1(word); // call exercise function <-
@@ -118,10 +136,14 @@ namespace EnglStud
         #region Ex1 region Word selecte translate
         private void Exersice_Choose_Translate_Word_Ex1(Word choseWord) // EX 1
         {
+            CollapseAllElements();
+            StartTask_Field.Visibility = Visibility.Visible;
+
+            ExNumb = 1;
             List<TextBlock> textBlocks_ChoWord = Start_Exersice();
 
             Studing_word_TxtBlock_Main.Text = choseWord.WordInEnglish;
-            Studing_word_TxtBlock_Main.Tag = choseWord.Translation;
+            Studing_word_TxtBlock_Main.Tag = choseWord;
             TestBox.Text = choseWord.Translation;
 
             int i = 0;
@@ -148,13 +170,26 @@ namespace EnglStud
         private void Studing_word_TxtBlock_0_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var temp = sender as TextBlock;
-            if (Studing_word_TxtBlock_Main.Tag.ToString() == temp.Text)
-            {
-                MessageBox.Show("+"); // true to do
-            }
+            Word tempWord = (Word)Studing_word_TxtBlock_Main.Tag;
+           
+                //MessageBox.Show("+"); // if right
+                if (ExNumb == 1)
+                {
+                    if (tempWord.Translation == temp.Text)
+                        Exersice_Choose_Eng_To_Translate_Ex2(tempWord);
+                }
+                else if (ExNumb == 2)
+                {
+                    Exersice_Jumbled_Engl_Word_Ex3(tempWord);
+                }
+            
             else
             {
-                // false to do
+                if (WrongExersice.IndexOf(tempWord) != -1)
+                {
+                    WrongExersice.Add(tempWord);
+                    MessageBox.Show("Wrong");
+                }
             }
         }
 
@@ -176,10 +211,11 @@ namespace EnglStud
 
         private void Exersice_Choose_Eng_To_Translate_Ex2(Word choseWord) // EX 2
         {
+            ExNumb = 2;
             List<TextBlock> textBlocks_ChoWord = Start_Exersice();
 
             Studing_word_TxtBlock_Main.Text = choseWord.Translation;
-            Studing_word_TxtBlock_Main.Tag = choseWord.WordInEnglish;
+            Studing_word_TxtBlock_Main.Tag = choseWord;
             TestBox.Text = choseWord.WordInEnglish;
 
             int i = 0;
@@ -211,6 +247,11 @@ namespace EnglStud
 
         private void Exersice_Jumbled_Engl_Word_Ex3(Word choseWord)
         {
+            CollapseAllElements();
+            Ex3_Spell_EnglWord_Field.Visibility = Visibility.Visible;
+
+            word = choseWord;
+
             Main_Ex3_Word_Translate_TextBlock.Text = choseWord.Translation;
             Main_Ex3_Word_Translate_TextBlock.Tag = choseWord.WordInEnglish;
             Test_Jumbled_TextBlock.Text = choseWord.WordInEnglish;
@@ -224,15 +265,55 @@ namespace EnglStud
 
         private void Entered_Jumbled_Word_TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.Key.ToString().ToLower() == Jumbled_Word[Jumbled_Word_i - 1].ToString().ToLower())
+            if (e.Key.ToString().ToLower() == Jumbled_Word[Jumbled_Word_i - 1].ToString().ToLower())
             {
+                popup1.IsOpen = false;
                 Jumbled_letters_TextBlock.Text += e.Key.ToString().ToLower();
                 Jumbled_Word_i++;
             }
             else
             {
                 e.Handled = true;
-                MessageBox.Show("no");
+
+                if (Miss_Jumbled_word_Count >= 2)
+                {
+                    Prompt_Ex3_TextBlock.Text = Jumbled_Word[Jumbled_Word_i - 1].ToString();
+
+                    if (WrongExersice.IndexOf(word) != -1)
+                    {
+                        WrongExersice.Add(word);
+                    }
+
+                    popup1.IsOpen = true;
+
+                    Miss_Jumbled_word_Count = 0;
+                }
+                else
+                {
+                    popup1.IsOpen = false;
+                    Miss_Jumbled_word_Count++;
+                }
+            }
+            if (Entered_Jumbled_Word_TextBox.Text.ToLower() == word.WordInEnglish.ToLower())
+            {
+                if (studingWords.Count() != 0)
+                {
+                    word = db.Words.Find(studingWords.Pop());
+                    Exersice_Choose_Translate_Word_Ex1(word);
+                }
+                else
+                {
+                    if (WrongExersice.Count != 0)
+                    {
+                        Exersice_Choose_Translate_Word_Ex1(WrongExersice[0]);
+                        WrongExersice.RemoveAt(0); //----------------------------------------------------------TUT-----------------------------------------------------------------//
+                    }
+                    else
+                    {
+                        CollapseAllElements();
+                        See_you_soon.Visibility = Visibility.Visible;
+                    }
+                }
             }
         }
 
@@ -314,6 +395,8 @@ namespace EnglStud
         private void ListViewItem_MouseUp(object sender, MouseButtonEventArgs e) // Test CollapseAllElements();
         {
             CollapseAllElements();
+            //Exersice_Jumbled_Engl_Word_Ex3(word);
+            Add_your_word.Visibility = Visibility.Visible;
         }
 
         private void CheckUserWord_Add_Click(object sender, RoutedEventArgs e)
@@ -322,6 +405,8 @@ namespace EnglStud
             //string kruc = TranslateText1(str);
             //Console.WriteLine(kruc);
         }
+
+        
 
 
 

@@ -69,7 +69,6 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Tex
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Text.Json.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\System.ValueTuple.xml
-C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.AssemblyReference.cache
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\EntityFramework.xml
@@ -136,3 +135,4 @@ C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\NJsonSchem
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Namotion.Reflection.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\Newtonsoft.Json.Schema.xml
 C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\bin\Debug\NJsonSchema.xml
+C:\Users\Servak\Documents\GitHub\EnglStud\EnglStud\EnglStud\obj\Debug\EnglStud.csproj.AssemblyReference.cache

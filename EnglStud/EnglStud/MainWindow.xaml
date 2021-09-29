@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EnglStud"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="600" Width="1500" WindowStartupLocation="CenterScreen">
+        Title="" Height="600" Width="1500" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -41,13 +41,14 @@
             </Border.Effect>
             <StackPanel x:Name="MainFeild" TextOptions.TextFormattingMode="Display" RenderOptions.BitmapScalingMode="NearestNeighbor"> <!--Work space-->
 
+
                 <StackPanel x:Name="StartTask_Field" Visibility="Collapsed">
                     <!--First Button-->
                     <Grid TextOptions.TextFormattingMode="Display">
 
                         <!--<Border BorderBrush="{DynamicResource PrimaryHueMidBrush}" BorderThickness="1"/>-->
                         <TextBlock x:Name="TestBox" HorizontalAlignment="Left" Text="Start exercise" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
-                        <Button Click="Exersice_Choose_Engl_Word_Test" x:Name="Exersice_Choose_Engl_Word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
+                        <!--<Button Click="Exersice_Choose_Engl_Word_Test" x:Name="Exersice_Choose_Engl_Word" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>-->
 
                     </Grid>
                     <Grid TextOptions.TextFormattingMode="Display" x:Name="Ex_Spell_Word" Visibility="Visible">
@@ -72,15 +73,15 @@
 
                     </Grid>
                 </StackPanel>
-                <StackPanel x:Name="Ex3_Spell_EnglWord_Field" Visibility="Visible">
+                <StackPanel x:Name="Ex3_Spell_EnglWord_Field" Visibility="Collapsed">
 
                     <Grid TextOptions.TextFormattingMode="Display">
                         
                         <TextBlock x:Name="Test_Jumbled_TextBlock" HorizontalAlignment="Left" Text="Test Jumbled" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
-                        <Button Click="Exersice_Choose_Engl_Word_Test" x:Name="qweqweq" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>
+                        <!--<Button Click="Exersice_Choose_Engl_Word_Test" x:Name="qweqweq" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>-->
 
                     </Grid>
-                    <Grid TextOptions.TextFormattingMode="Display" x:Name="qweqwee" Visibility="Visible">
+                    <Grid TextOptions.TextFormattingMode="Display" Visibility="Visible">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
@@ -93,8 +94,13 @@
                         </Grid.RowDefinitions>
 
                         <TextBlock x:Name="Main_Ex3_Word_Translate_TextBlock" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" Text="[Word]" FontSize="25" Margin="25"/>
-                        <TextBlock x:Name="Jumbled_letters_TextBlock" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" Text="[Jumbled_Word]" FontSize="25" Margin="25"/>
-                        <TextBox x:Name="Entered_Jumbled_Word_TextBox" KeyDown="Entered_Jumbled_Word_TextBox_KeyDown" FontSize="25" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Enter word"/>
+                        <TextBlock x:Name="Jumbled_letters_TextBlock" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Text="[Jumbled_Word]" FontSize="25" Margin="25"/>
+                        
+                        <Popup x:Name="popup1" StaysOpen="False" Placement="Mouse" MaxWidth="180"
+                                    AllowsTransparency="True"  >
+                            <TextBlock x:Name="Prompt_Ex3_TextBlock" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Text="[Prompt]" FontSize="25" Margin="25"/>
+                        </Popup>
+                        <TextBox x:Name="Entered_Jumbled_Word_TextBox"  KeyDown="Entered_Jumbled_Word_TextBox_KeyDown" FontSize="25" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Enter word"/>
                         
                     </Grid>
 
@@ -120,6 +126,40 @@
                         <Button Click="AddRandom_Word_Click" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Add"/>
                         <Button Click="Random_Word_Click"  HorizontalAlignment="Left" Margin="0 10 0 0" Content="Skip" Style="{StaticResource MaterialDesignOutlinedButton}"/>
                     </Grid>
+                </StackPanel>
+
+                <StackPanel x:Name="Add_your_word" Visibility="Collapsed">
+
+                    <Grid TextOptions.TextFormattingMode="Display">
+
+                        <TextBlock x:Name="hkjhkhjk" HorizontalAlignment="Left" Text="Add your word" FontSize="25" FontWeight="Light" Margin="0 0 0 15"/>
+                        <!--<Button Click="Exersice_Choose_Engl_Word_Test" x:Name="qweqweq" HorizontalAlignment="Right" Margin="0 10 0 0" Width="85" Content="Next"/>-->
+
+                    </Grid>
+                    <Grid TextOptions.TextFormattingMode="Display" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100px"/>
+                            <RowDefinition Height="100px"/>
+                            <RowDefinition Height="100px"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBox x:Name="qwe" FontSize="25" Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="Enter word"/>
+                        <TextBox x:Name="rtsdt" FontSize="25" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Enter translate"/>
+                        <Button HorizontalAlignment="Center" Margin="0 10 0 0" Width="500" Content="Add" Grid.Column="1" Grid.Row="3"/>
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel x:Name="See_you_soon" Visibility="Collapsed">                    
+                        <TextBlock Text="You done a good job. See you soon!" FontSize="30"/>                    
+                </StackPanel>
+                <StackPanel x:Name="Wellcome" Visibility="Visible">
+                    <TextBlock Text="I`m glad to see you!" FontSize="30" HorizontalAlignment="Center"/>                    
                 </StackPanel>
 
             </StackPanel>
